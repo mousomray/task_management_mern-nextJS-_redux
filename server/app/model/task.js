@@ -25,19 +25,11 @@ const TaskSchema = new mongoose.Schema({
   dueDate: {
     type: Date,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now,
-  },
   isDeleted: {
     type: Boolean,
     default: false, // Mark task as not deleted initially
   },
-});
+}, { timestamps: true });
 
 const TaskModel = mongoose.model('task', TaskSchema);
 
