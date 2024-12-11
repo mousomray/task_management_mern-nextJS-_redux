@@ -45,7 +45,7 @@ const EditTaskForm = () => {
                 dueDate: response?.dueDate?.split('T')[0] // Ensure date format is YYYY-MM-DD
             };
             reset(reg)
-
+            return response
         } catch (error) {
             console.log(error);
         }
@@ -53,6 +53,8 @@ const EditTaskForm = () => {
 
     const { data: singledata } = useQuery({ queryFn: getTask, queryKey: ['singletask', id] }) // 
     // Get product For Single Value (End)
+
+    console.log("My single data...",singledata);
 
     const onSubmit = async (data) => {
         setLoading(true);
